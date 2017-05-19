@@ -9,19 +9,9 @@ import morgan from 'morgan';
 import routes from './http.request.handling/routes';
 import settings from '../configuration';
 
-let app = express();
-
-// Test to check cache works as expected
-cache.set('TestKey', '    TestValue successfuly set & retrieved from cache\n')
-cache.get('TestKey', function(err, reply) {
-    // eslint-disable-next-line no-console  
-    console.log(reply)
-})
-
-cache.del('TestKey', function(err, reply) {
-    // eslint-disable-next-line no-console    
-    // console.log(reply)
-});
+var app = express();
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
 
 // Adds some security best practices
 app.use(helmet());
@@ -47,7 +37,15 @@ if (settings.envs.development) {
     app.use(errorHandler());
 }
 
-app.listen(settings.port, () => {
+io.on('connection', function(client) {
+    console.log('Client connected...');
+
+    client.on('msg', function(data) {
+        console.log(data);
+    });
+});
+
+server.listen(settings.port, () => {
     // eslint-disable-next-line no-console
     console.log(`
     === App Server ===
@@ -60,4 +58,4 @@ app.listen(settings.port, () => {
   `)
 });
 
-export default app;
+export default server;
