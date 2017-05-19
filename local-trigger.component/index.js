@@ -9,6 +9,9 @@ client.once("connect", function() {
     console.log('Client: Connected to port ' + port);
 });
 
+// Logger
+app.use(morgan('dev'));
+
 app.get('/', function(req, res) {
     client.emit('msg', { user: 'me', msg: 'whazzzup?' });
     res.send('Hello World!')
