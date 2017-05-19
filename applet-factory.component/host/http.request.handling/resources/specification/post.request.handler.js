@@ -1,11 +1,13 @@
 import BaseHandler from 'fresco-http-service-utilities';
+import cache from '../../../../cache'
 
 class PostSpecificationHandler extends BaseHandler {
     handle(req, res) {
-        res.json({
-            description: 'applet-factory',
-            health: 'ok'
-        });
+        const specification = req.body;
+        cache.set(specification.applet.id, JSON.stringify(specification));
+
+        console.log(`applet ${specification.applet.id} successfully created! ` + JSON.stringify(specification));
+        res.json();
     }
 }
 

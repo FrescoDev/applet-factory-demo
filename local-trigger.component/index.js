@@ -16,13 +16,15 @@ client.once("connect", function() {
 //app.use(morgan('dev'));
 
 const trigger1 = {
-    ownerId: 'john',
+    ownerId: 'userId',
+    appletId: 'appletid',
     type: 'leftWork',
     triggerAt: new Date()
 }
 
 const trigger2 = {
     ownerId: 'john',
+    appletId: 'appletId2',
     type: 'monday9pm',
     triggerAt: new Date()
 }
