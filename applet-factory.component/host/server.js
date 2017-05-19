@@ -8,14 +8,12 @@ import methodOverride from 'method-override';
 import morgan from 'morgan';
 import routes from './http.request.handling/routes';
 import settings from '../configuration';
+import http from 'http';
+import socket from 'socket.io';
 
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-
-// Adds some security best practices
-app.use(helmet());
-app.use(cors());
+const app = express();
+const server = http.createServer(app);
+const io = socket(server);
 
 // Logger
 if (!settings.envs.test) {
@@ -32,16 +30,11 @@ app.use(methodOverride());
 // Mount API routes
 app.use('/', routes);
 
-// Only use error handler in development
-if (settings.envs.development) {
-    app.use(errorHandler());
-}
-
 io.on('connection', function(client) {
-    console.log('Client connected...');
+    console.log('Server -- Client connected to socket');
 
     client.on('msg', function(data) {
-        console.log(data);
+        console.log('Server -- Recieved message from client: ' + JSON.stringify(data));
     });
 });
 
