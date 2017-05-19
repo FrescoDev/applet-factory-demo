@@ -30,10 +30,14 @@ app.use(methodOverride());
 // Mount API routes
 app.use('/', routes);
 
-io.on('connection', function(client) {
+io.on('connection', (client) => {
     console.log('Server -- Client connected to socket');
 
-    client.on('msg', function(data) {
+    client.on('trigger-1', (data) => {
+        console.log('Server -- Recieved message from client: ' + JSON.stringify(data));
+    });
+
+    client.on('trigger-2', (data) => {
         console.log('Server -- Recieved message from client: ' + JSON.stringify(data));
     });
 });
