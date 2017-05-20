@@ -11,7 +11,7 @@ Two use cases are defined below as examples of Trigger and Action pairings (Appl
 
 ### Solution
 
-[Imgur](images/applet_factory_screenshot.PNG)
+![applet-web-app](images/applet_factory_screenshot.PNG)
 
 #### System components:
 
