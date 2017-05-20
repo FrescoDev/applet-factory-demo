@@ -109,18 +109,18 @@ Servers are configured to run on ports: 4567 (Applet Factory API), 3000 (Local t
 
 **Main Technologies**:
 
-Node.js (Server side runtime)
-ES6 (Language)
-Babel (Transpiling)
-Express (Web Framework)
-Socket.io (Websockets)
-Redis (In memory cache)
-Chai/Mocha/Postman (Testing)
-Material Design/Bootstrap (Styles)
-JQuery (Client side scripting)
-Git (Source control)
-ESLint (Linting)
-Visual Studio Code (Code editor)
+* Node.js (Server side runtime)
+* ES6 (Language)
+* Babel (Transpiling)
+* Express (Web Framework)
+* Socket.io (Websockets)
+* Redis (In memory cache)
+* Chai/Mocha/Postman (Testing)
+* Material Design/Bootstrap (Styles)
+* JQuery (Client side scripting)
+* Git (Source control)
+* ESLint (Linting)
+* Visual Studio Code (Code editor)
 
 ## Running the Tests
 
