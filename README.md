@@ -81,7 +81,7 @@ This is a server application with a socket connection to the applet factory API 
 * Add validation to form post on button click
 * Modularise scripts 
 * Make object IDs unique
-* Convert action switch-case matching mechanism to * ey-value store lookup
+* Convert action switch-case matching mechanism to key-value store lookup
 * Separate applet factory into smaller components
 * Add proper error handling
 * Add real testing
