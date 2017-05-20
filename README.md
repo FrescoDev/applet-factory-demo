@@ -82,6 +82,7 @@ This is a server application with a socket connection to the applet factory API 
 * Add real testing
 * Add logic for email sending
 * Add logic for SMS sending
+* Enhance performance/ test performance
 
 ### Prerequisities
 
