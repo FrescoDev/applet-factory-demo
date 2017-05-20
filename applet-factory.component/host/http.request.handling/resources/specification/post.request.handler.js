@@ -3,7 +3,6 @@ import cache from '../../../../cache'
 
 class PostSpecificationHandler extends BaseHandler {
     handle(req, res) {
-        console.log(req.body)
         const specification = req.body;
         cache.set(specification.applet.id, JSON.stringify(specification));
 
