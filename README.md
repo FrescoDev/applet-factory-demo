@@ -103,7 +103,7 @@ This is a server application with a socket connection to the applet factory API 
 6. To use the web interface open your browser and navigate to: ```localhost:8080```
 7. Messages will be logged out on the console which kicked off the applet facotry API process.
 
-* WARNING: MUST create applet before invoking actions or else fails, and if running the web app ensure you've started both the API & local trigger component.
+* WARNING: If running the web app ensure you've started both the API & local trigger component.
 
 Servers are configured to run on ports: 4567 (Applet Factory API), 3000 (Local trigger component), and 8080 (Web Application Interface).
 
