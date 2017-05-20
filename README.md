@@ -73,6 +73,7 @@ This is a server application with a socket connection to the applet factory API 
 * Add Security
 * Add CRUD functionality for applets
 * Add Input form for web interface
+* Modularise applet creation through interface
 * Add functionality for one to many trigger-action pairings
 * Add Realtime visual feedback in web interface
 * Add validation to form post on button click
