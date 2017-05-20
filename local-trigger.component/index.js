@@ -16,7 +16,7 @@ client.once("connect", function() {
 //app.use(morgan('dev'));
 
 const trigger1 = {
-    ownerId: 'userId',
+    ownerId: 'jane',
     appletId: 'appletid',
     type: 'leftWork',
     triggerAt: new Date()
@@ -30,12 +30,12 @@ const trigger2 = {
 }
 
 app.get('/trigger-1', function(req, res) {
-    client.emit('trigger-1', trigger1);
+    client.emit('trigger', trigger1);
     res.send('Trigger 1 sent!')
 });
 
 app.get('/trigger-2', function(req, res) {
-    client.emit('trigger-2', trigger2);
+    client.emit('trigger', trigger2);
     res.send('Trigger 2 sent!')
 });
 

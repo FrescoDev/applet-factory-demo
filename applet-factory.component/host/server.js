@@ -10,7 +10,7 @@ import routes from './http.request.handling/routes';
 import settings from '../configuration';
 import http from 'http';
 import socket from 'socket.io';
-import handleLeftWorkTrigger from '../core/trigger-handlers/left-work.trigger.handler';
+import handle from '../core/actions/trigger.handler';
 
 const app = express();
 const server = http.createServer(app);
@@ -34,14 +34,11 @@ app.use('/', routes);
 io.on('connection', (client) => {
     console.log('Server -- Client connected to socket');
 
-    client.on('trigger-1', (trigger) => {
+    client.on('trigger', (trigger) => {
         console.log('Server -- Recieved message from client: ' + JSON.stringify(trigger));
-        handleLeftWorkTrigger(trigger)
+        handle(trigger)
     });
 
-    client.on('trigger-2', (trigger) => {
-        console.log('Server -- Recieved message from client: ' + JSON.stringify(trigger));
-    });
 });
 
 server.listen(settings.port, () => {
