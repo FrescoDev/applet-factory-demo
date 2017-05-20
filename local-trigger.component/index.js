@@ -3,6 +3,7 @@ const socket = {
     host: "http://localhost:",
     port: 4567
 };
+const cors = require('cors');
 const express = require('express');
 const app = express();
 const ioc = require('socket.io-client');
@@ -29,6 +30,8 @@ const trigger2 = {
     type: 'monday9pm',
     triggerAt: new Date()
 }
+
+app.use(cors());
 
 app.get('/trigger-1', function(req, res) {
     client.emit('trigger', trigger1);

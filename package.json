@@ -7,6 +7,7 @@
         "build": "babel applet-factory.component -d build",
         "start": "nodemon index.js",
         "start:local-trigger": "nodemon ./local-trigger.component",
+        "start:interface": "nodemon ./applet-factory.interface",
         "start:all": "npm-run-all -p -r start:local-trigger start",
         "postinstall": "npm run build",
         "clean": "rm -rf build && mkdir build",
