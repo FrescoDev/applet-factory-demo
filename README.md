@@ -19,6 +19,10 @@ The applet-factory API
 
 - ```npm run test```
 
+## Test the app via POSTMAN
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/feee6893f79e54fd8315)
+
 ## Request & Response Examples
 
 ### API Resources
