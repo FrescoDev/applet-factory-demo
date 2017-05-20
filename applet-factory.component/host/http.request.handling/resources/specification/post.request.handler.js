@@ -6,7 +6,7 @@ class PostSpecificationHandler extends BaseHandler {
         const specification = req.body;
         cache.set(specification.applet.id, JSON.stringify(specification));
 
-        console.log(`applet ${specification.applet.id} successfully created! ` + JSON.stringify(specification));
+        console.log(`applet id: ${specification.applet.id} successfully created! ` + JSON.stringify(specification));
         res.json();
     }
 }

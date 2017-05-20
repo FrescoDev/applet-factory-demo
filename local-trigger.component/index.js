@@ -15,6 +15,7 @@ client.once("connect", function() {
 // Logger
 //app.use(morgan('dev'));
 
+//create some mock triggers
 const trigger1 = {
     ownerId: 'jane',
     appletId: 'appletid',
@@ -24,7 +25,7 @@ const trigger1 = {
 
 const trigger2 = {
     ownerId: 'john',
-    appletId: 'appletId2',
+    appletId: 'appletid2',
     type: 'monday9pm',
     triggerAt: new Date()
 }
@@ -40,5 +41,5 @@ app.get('/trigger-2', function(req, res) {
 });
 
 app.listen(3000, function() {
-    console.log('Example app listening on port 3000!')
+    console.log('Trigger stub listening on port 3000!')
 });
