@@ -1,6 +1,5 @@
-const morgan = require('morgan');
 const socket = {
-    host: "http://localhost:",
+    host: 'http://localhost:',
     port: 4567
 };
 const cors = require('cors');
@@ -9,12 +8,9 @@ const app = express();
 const ioc = require('socket.io-client');
 const client = ioc.connect(socket.host + socket.port);
 
-client.once("connect", function() {
+client.once('connect', function() {
     console.log('Client -- Connected to port ' + socket.port);
 });
-
-// Logger
-//app.use(morgan('dev'));
 
 //create some mock triggers
 const trigger1 = {

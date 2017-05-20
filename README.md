@@ -1,6 +1,13 @@
-# applet-factory
+# Applet Factory Concept Demo
 
-The applet-factory API
+### Background
+
+To create a Trigger and Action based application which allows the building of Applets to perform an Action based on the state of a Trigger.
+
+Two use cases are defined below as examples of Trigger and Action pairings (Applets). We should be able to build an Applet from any Trigger and Action pairing.
+ 
+1. When leaving work I want to send a text message to my SO to let them know I'll be home shortly.
+2. Every Monday at 9pm I want to send an email to myself to remind me to put the bins out.
 
 ### Prerequisities
 

@@ -3,9 +3,9 @@ import sendSms from './send-sms';
 
 const invoke = (actionType, settings) => {
     switch (actionType) {
-        case "sendSms":
+        case 'sendSms':
             return sendSms(settings)
-        case "sendEmail":
+        case 'sendEmail':
             return sendEmail(settings)
     }
 };
