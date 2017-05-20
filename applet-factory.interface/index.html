@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Fresco Development">
+
+    <title></title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styling/main.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+    <script type="text/javascript">
+        JSONTest = function() {
+
+            $.ajax({
+                url: "http://localhost:4567/specification",
+                type: "POST",
+                data: {
+                    userDetails: {
+                        userId: "jane"
+                    },
+                    applet: {
+                        id: "appletid",
+                        trigger: {
+                            id: "triggerId",
+                            type: "leftWork"
+                        },
+                        action: {
+                            id: "actionId",
+                            type: "sendSms"
+                        },
+                        settings: {
+                            smsAddress: "07817856708"
+                        }
+                    }
+                },
+                dataType: "json",
+                success: function(result) {
+                    switch (result) {
+                        case true:
+                            processResponse(result);
+                            break;
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+        };
+    </script>
+</head>
+
+</head>
+
+<body style="text-align: center; padding-top: 15%">
+    <div style="text-align: center;">
+        <h1>Applet Factory</h1>
+        <div>
+            <button type="button" id="applet1" class="btn btn-outline-primary waves-effect">Create Applet 1</button>
+            <button type="button" id="applet2" class="btn btn-outline-default waves-effect">Create Applet 2</button>
+            <button type="button" id="trigger1" class="btn btn-outline-secondary waves-effect">Invoke Trigger 1</button>
+            <button type="button" id="trigger2" class="btn btn-outline-success waves-effect">Invoke Trigger 2</button>
+        </div>
+    </div>
+</body>
+
+</html>

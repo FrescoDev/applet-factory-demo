@@ -21,6 +21,8 @@ if (!settings.envs.test) {
     app.use(morgan('dev'));
 }
 
+app.use(cors);
+
 // Properly Decode JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
