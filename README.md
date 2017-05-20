@@ -48,18 +48,20 @@ Example Request body:
 
 * Applet Factory Web Application
 
--A very simplified visual interface to the Applet Factory API.
+A very simplified visual interface to the Applet Factory API.
 
 Ideally should allow users to:
 
 -Create a trigger and action pairing
+
 -Specify any required details
+
 -Register their applet
 
-The MVP interface simple has two "create trigger buttons" one for each type defined in the use case.
-These can be mosre closely inspected via the postman collection provided below. 
+The MVP interface simple has two "create applet buttons" one for each type defined in the use case.
+These can be more closely inspected via the postman collection provided below. 
 
-I've also added two "trigger buttons" for testing and to obverse the system works, this simple calls the local trigger component which has a socket connection to the applet factory API to allow real time triggering.
+I've also added two "trigger buttons" for testing and to obverse the system works, this simply calls the local trigger component which has a socket connection to the applet factory API to allow real time triggering.
 
 * Local Trigger simulator
 
