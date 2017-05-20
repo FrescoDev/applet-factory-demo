@@ -9,6 +9,51 @@ Two use cases are defined below as examples of Trigger and Action pairings (Appl
 1. When leaving work I want to send a text message to my SO to let them know I'll be home shortly.
 2. Every Monday at 9pm I want to send an email to myself to remind me to put the bins out.
 
+### Solution
+
+#### System components:
+
+* Applet Factory API
+
+-A simple API with two endpoints GET /meta - which allows for simple health check of the server and POST /specification which allows for the creation of applets (a trigger and action pairing with specified settings).
+
+-Each successful post request to the /specification endpoint allows persists an "applet specification" into an in memory redis cache which allows applet specifications to be retrieved by some ID.
+
+### POST /specification
+
+Example: http:/{url}/specification
+
+Request body:
+
+    {  "userDetails" : {
+	"userId" : "jane"
+	},
+   "applet":{  
+      "id":"appletid",
+      "trigger" : {
+      	"id" : "triggerId",
+      	"type" : "leftWork"
+      },
+      "action" : {
+      	"id" : "actionId",
+      	"type" : "sendSms"
+      },
+      "settings" : {
+      	"smsAddress" : "07817856708",
+      	"smsContent" : "I'll be back soon!"
+      }
+   }
+}
+
+Response body:
+
+    {
+        "res": "ok"
+    }
+
+* Applet Factory Web Application
+* Local Trigger simulator
+
 ### Prerequisities
 
 * node/npm
