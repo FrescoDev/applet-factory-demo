@@ -9,10 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="Fresco Development">
 
-    <title></title>
+    <title>Applet Factory</title>
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" type="text/css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/css/mdb.min.css" type="text/css">
 
     <!-- Custom Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -29,7 +31,11 @@
 
 <body style="text-align: center; padding-top: 15%">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.1/js/mdb.min.js"></script>
     <div style="text-align: center;">
         <h1>Applet Factory</h1>
         <div>
@@ -39,6 +45,32 @@
             <button type="button" id="trigger2" class="btn btn-outline-success waves-effect">Invoke Trigger 2</button>
         </div>
     </div>
+    <!-- Central Modal Medium Success -->
+    <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-success" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Success!</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fa fa-check fa-4x mb-1 animated rotateIn"></i>
+                        <p id="modalContent">Trigger: left work, Action: Send sms</p>
+                        <p>Press esc to close</p>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Central Modal Medium Success-->
 </body>
 <script type="text/javascript">
     document.getElementById("applet1").addEventListener("click",
@@ -64,6 +96,13 @@
                         "smsAddress": "07817856708",
                         "smsContent": "I'll be back soon!",
                     }
+                }
+            };
+
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    $('#centralModalSuccess').modal('show');
+                    $('#modalContent').text('Created applet with trigger: Left Work and action: Send SMS');
                 }
             };
 
@@ -101,6 +140,13 @@
                 }
             };
 
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    $('#centralModalSuccess').modal('show');
+                    $('#modalContent').text('Created applet with trigger: Monday 9 P.M. and action: Send E-mail');
+                }
+            };
+
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
 
@@ -115,6 +161,13 @@
             var xhr = new XMLHttpRequest();
             var url = "http://localhost:3000/trigger-1";
 
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    $('#centralModalSuccess').modal('show');
+                    $('#modalContent').text('Left work trigger sent!');
+                }
+            };
+
             xhr.open("GET", url, true);
             xhr.send();
         },
@@ -126,6 +179,13 @@
 
             var xhr = new XMLHttpRequest();
             var url = "http://localhost:3000/trigger-2";
+
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    $('#centralModalSuccess').modal('show');
+                    $('#modalContent').text('Monday 9 P.M. trigger sent!');
+                }
+            };
 
             xhr.open("GET", url, true);
             xhr.send();
