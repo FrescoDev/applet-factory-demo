@@ -105,6 +105,23 @@ This is a server application with a socket connection to the applet factory API 
 
 * WARNING: MUST create applet before invoking actions or else fails, and if running the web app ensure you've started both the API & local trigger component.
 
+Servers are configured to run on ports: 4567 (Applet Factory API), 3000 (Local trigger component), and 8080 (Web Application Interface).
+
+**Main Technologies**:
+
+Node.js (Server side runtime)
+ES6 (Language)
+Babel (Transpiling)
+Express (Web Framework)
+Socket.io (Websockets)
+Redis (In memory cache)
+Chai/Mocha/Postman (Testing)
+Material Design/Bootstrap (Styles)
+JQuery (Client side scripting)
+Git (Source control)
+ESLint (Linting)
+Visual Studio Code (Code editor)
+
 ## Running the Tests
 
 - ```npm run test```
