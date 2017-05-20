@@ -17,7 +17,7 @@ Two use cases are defined below as examples of Trigger and Action pairings (Appl
 
 -A simple API with two endpoints GET /meta - which allows for simple health check of the server and POST /specification which allows for the creation of applets (a trigger and action pairing with specified settings).
 
--Each successful post request to the /specification endpoint allows persists an "applet specification" into an in memory redis cache which allows applet specifications to be retrieved by some ID.
+-Each successful post request to the /specification endpoint persists an "applet specification" into an in memory redis cache which allows applet specifications to be retrieved by some ID.
 
 ### POST /specification
 
@@ -80,6 +80,8 @@ This is a server application with a socket connection to the applet factory API 
 -Separate applet factory into smaller components
 -Add proper error handling
 -Add real testing
+-Add logic for email sending
+-Add logic for SMS sending
 
 ### Prerequisities
 
