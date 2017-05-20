@@ -37,7 +37,7 @@ io.on('connection', (client) => {
     console.log('Server -- Client connected to socket');
 
     client.on('trigger', (trigger) => {
-        console.log('Server -- Recieved message from client: ' + JSON.stringify(trigger));
+        console.log(`Server -- Recieved message from client: ${JSON.stringify(trigger)} \n`);
         handle(trigger)
     });
 
