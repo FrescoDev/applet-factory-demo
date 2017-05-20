@@ -54,14 +54,30 @@ A very simplified visual interface to the Applet Factory API.
 
 Ideally should allow users to:
 
--Create a trigger and action pairing
+* Create a trigger and action pairing
 
--Specify any required details
+* Specify any required details
 
--Register their applet
+* Register their applet
 
-The MVP interface simple has two "create applet buttons" one for each type defined in the use case.
-These can be more closely inspected via the postman collection provided below. 
+The MVP interface simply has two "create applet buttons" one for each type defined in the use case.
+These can be more closely inspected via the postman collection provided below.
+
+The idea being that the applet specification can be configured here, with the user customising a desired trigger and action pairing along with a specific configuration (represented in the POST request body as the specification object) via a form,
+which can then be supplied to the API when the create button is clicked. 
+
+The API then "listens" for external triggers via its socket connection, handling each incoming trigger supplied:
+
+    {
+        ownerId: "jane",
+        appletId: "appletid",
+        type: "leftWork",
+        triggerAt: "2017-05-20T14:48:31"
+    }
+
+Each 'trigger' message supplied arrives with an appletId which should match a previously persisted applet created via the web interface.
+
+The corresponding configured applet can then be used to find the corresponding action, and invoke it with the configured applet settings.
 
 I've also added two "trigger buttons" for testing and to obverse the system works, this simply calls the local trigger component which has a socket connection to the applet factory API to allow real time triggering.
 
