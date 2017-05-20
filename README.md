@@ -40,7 +40,7 @@ Example Request body:
       	        "type" : "sendSms"
             },
             "settings" : {
-      	        "smsAddress" : "07817856708",
+      	        "smsAddress" : "07817856709",
       	        "smsContent" : "I'll be back soon!"
             }
         }
