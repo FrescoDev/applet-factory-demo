@@ -67,6 +67,20 @@ I've also added two "trigger buttons" for testing and to obverse the system work
 
 This is a server application with a socket connection to the applet factory API to allow simulation of triggers in real time.
 
+#### System design flaws/todos:
+
+-Add Data validation
+-Add Security
+-Add CRUD functionality for applets
+-Add Input form for web interface
+-Add functionality for one to many trigger-action pairings
+-Add Realtime visual feedback in web interface
+-Make object IDs unique
+-Convert action switch-case matching mechanism to key-value store lookup
+-Separate applet factory into smaller components
+-Add proper error handling
+-Add real testing
+
 ### Prerequisities
 
 * node/npm
