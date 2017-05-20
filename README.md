@@ -21,38 +21,49 @@ Two use cases are defined below as examples of Trigger and Action pairings (Appl
 
 ### POST /specification
 
-Example: http:/{url}/specification
+Example: http:/localhost:4567/specification
 
-Request body:
+Example Request body:
 
-    {  "userDetails" : {
-	"userId" : "jane"
-	},
-   "applet":{  
-      "id":"appletid",
-      "trigger" : {
-      	"id" : "triggerId",
-      	"type" : "leftWork"
-      },
-      "action" : {
-      	"id" : "actionId",
-      	"type" : "sendSms"
-      },
-      "settings" : {
-      	"smsAddress" : "07817856708",
-      	"smsContent" : "I'll be back soon!"
-      }
-   }
-}
-
-Response body:
-
-    {
-        "res": "ok"
+    {  
+        "userDetails" : {
+	        "userId" : "jane"
+	    },
+        "applet" : {  
+            "id":"appletid",
+            "trigger" : {
+      	        "id" : "triggerId",
+      	        "type" : "leftWork"
+            },
+            "action" : {
+      	        "id" : "actionId",
+      	        "type" : "sendSms"
+            },
+            "settings" : {
+      	        "smsAddress" : "07817856708",
+      	        "smsContent" : "I'll be back soon!"
+            }
+        }
     }
 
 * Applet Factory Web Application
+
+-A very simplified visual interface to the Applet Factory API.
+
+Ideally should allow users to:
+
+-Create a trigger and action pairing
+-Specify any required details
+-Register their applet
+
+The MVP interface simple has two "create trigger buttons" one for each type defined in the use case.
+These can be mosre closely inspected via the postman collection provided below. 
+
+I've also added two "trigger buttons" for testing and to obverse the system works, this simple calls the local trigger component which has a socket connection to the applet factory API to allow real time triggering.
+
 * Local Trigger simulator
+
+This is a server application with a socket connection to the applet factory API to allow simulation of triggers in real time.
 
 ### Prerequisities
 
@@ -62,9 +73,11 @@ Response body:
 
 1. Clone the repo
 2. Run: ```npm install``` to install project dependencies
-3. Run: ```npm start``` to kickstart and run the applet factory API
+3. Run: ```npm start``` to kickstart and run the applet factory API or ```npm start:all``` to also kick off the local trigger simulator also.
 4. Run: ```npm start:local-trigger``` to kickstart and run the local trigger simulator
 5. Change to the applet-factory.interface's directory Run: ```npm run start``` to kickstart and run the applet factory interface
+6. To use the web interface open your browser and navigate to: ```localhost:8080```
+7. Messages will be logged out on the console which kicked off the applet facotry API process.
 
 ## Running the Tests
 
