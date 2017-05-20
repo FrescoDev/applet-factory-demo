@@ -69,19 +69,19 @@ This is a server application with a socket connection to the applet factory API 
 
 #### System design flaws/todos:
 
--Add Data validation
--Add Security
--Add CRUD functionality for applets
--Add Input form for web interface
--Add functionality for one to many trigger-action pairings
--Add Realtime visual feedback in web interface
--Make object IDs unique
--Convert action switch-case matching mechanism to key-value store lookup
--Separate applet factory into smaller components
--Add proper error handling
--Add real testing
--Add logic for email sending
--Add logic for SMS sending
+* Add Data validation
+* Add Security
+* Add CRUD functionality for applets
+* Add Input form for web interface
+* Add functionality for one to many trigger-action pairings
+* Add Realtime visual feedback in web interface
+* Make object IDs unique
+* Convert action switch-case matching mechanism to * ey-value store lookup
+* Separate applet factory into smaller components
+* Add proper error handling
+* Add real testing
+* Add logic for email sending
+* Add logic for SMS sending
 
 ### Prerequisities
 
